@@ -104,6 +104,10 @@
             <p>
                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Validate" OnClick="Validate_Click" />
             </p>
+
+            <p>
+                For source and issue reports see <a href="https://github.com/Axinom/cpix-validator">axinom/cpix-validator on GitHub</a>
+            </p>
         </form>
     </div>
 
