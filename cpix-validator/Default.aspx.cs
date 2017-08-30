@@ -125,7 +125,9 @@ namespace Axinom.CpixValidator
                 // And finally, just dump some useful data.
                 if (cpix.ContentKeys.Any())
                 {
-                    messages.Add($"The document contains {cpix.ContentKeys.Count} content keys:{Environment.NewLine}{string.Join(Environment.NewLine, cpix.ContentKeys.Select(k => k.Id.ToString()))}.");
+                    var keyIds = cpix.ContentKeys.Select(k => k.Id.ToString()).OrderBy(k => k);
+
+                    messages.Add($"The document contains {cpix.ContentKeys.Count} content keys:{Environment.NewLine}{string.Join(Environment.NewLine, keyIds)}.");
                 }
                 else
                 {
@@ -134,7 +136,9 @@ namespace Axinom.CpixValidator
                 
                 if (cpix.Recipients.Any())
                 {
-                    messages.Add($"The document defines {cpix.Recipients.Count} recipients:{Environment.NewLine}{string.Join(Environment.NewLine, cpix.Recipients.Select(r => r.Certificate.Subject))}");
+                    var recipientNames = cpix.Recipients.Select(r => r.Certificate.Subject).OrderBy(r => r);
+
+                    messages.Add($"The document defines {cpix.Recipients.Count} recipients:{Environment.NewLine}{string.Join(Environment.NewLine, recipientNames)}");
                 }
                 else
                 {
@@ -152,7 +156,9 @@ namespace Axinom.CpixValidator
 
                 if (cpix.ContentKeys.SignedBy != null)
                 {
-                    messages.Add($"The set of content keys is digitally signed by:{Environment.NewLine}{string.Join(Environment.NewLine, cpix.ContentKeys.SignedBy.Select(s => s.Subject))}");
+                    var signerNames = cpix.ContentKeys.SignedBy.Select(s => s.Subject).OrderBy(s => s);
+
+                    messages.Add($"The set of content keys is digitally signed by:{Environment.NewLine}{string.Join(Environment.NewLine, signerNames)}");
                 }
                 else if (cpix.ContentKeys.Any())
                 {
@@ -161,7 +167,9 @@ namespace Axinom.CpixValidator
 
                 if (cpix.UsageRules.SignedBy != null)
                 {
-                    messages.Add($"The set of usage rules is digitally signed by:{Environment.NewLine}{string.Join(Environment.NewLine, cpix.UsageRules.SignedBy.Select(s => s.Subject))}");
+                    var signerNames = cpix.UsageRules.SignedBy.Select(s => s.Subject).OrderBy(s => s);
+
+                    messages.Add($"The set of usage rules is digitally signed by:{Environment.NewLine}{string.Join(Environment.NewLine, signerNames)}");
                 }
                 else if (cpix.UsageRules.Any())
                 {
@@ -170,7 +178,9 @@ namespace Axinom.CpixValidator
 
                 if (cpix.Recipients.SignedBy != null)
                 {
-                    messages.Add($"The set of valid recipients is digitally signed by:{Environment.NewLine}{string.Join(Environment.NewLine, cpix.Recipients.SignedBy.Select(s => s.Subject))}");
+                    var signerNames = cpix.Recipients.SignedBy.Select(s => s.Subject).OrderBy(s => s);
+
+                    messages.Add($"The set of valid recipients is digitally signed by:{Environment.NewLine}{string.Join(Environment.NewLine, signerNames)}");
                 }
                 else if (cpix.Recipients.Any())
                 {
