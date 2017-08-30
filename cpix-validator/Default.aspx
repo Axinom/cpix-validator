@@ -39,19 +39,19 @@
 
             <asp:Repeater runat="server" ID="errorList" ItemType="System.String">
                 <ItemTemplate>
-                    <div class="alert alert-danger"><%#: Item %></div>
+                    <div class="alert alert-danger" style="white-space: pre-line"><%#: Item %></div>
                 </ItemTemplate>
             </asp:Repeater>
 
             <asp:Repeater runat="server" ID="warningList" ItemType="System.String">
                 <ItemTemplate>
-                    <div class="alert alert-warning"><%#: Item %></div>
+                    <div class="alert alert-warning" style="white-space: pre-line"><%#: Item %></div>
                 </ItemTemplate>
             </asp:Repeater>
 
             <asp:Repeater runat="server" ID="messageList" ItemType="System.String">
                 <ItemTemplate>
-                    <div class="alert alert-info"><%#: Item %></div>
+                    <div class="alert alert-info" style="white-space: pre-line"><%#: Item %></div>
                 </ItemTemplate>
             </asp:Repeater>
         </asp:Panel>
@@ -59,7 +59,7 @@
         <h2>Input data</h2>
         <asp:Repeater runat="server" ID="formErrorsList" ItemType="System.String">
             <ItemTemplate>
-                <div class="alert alert-danger"><%#: Item %></div>
+                <div class="alert alert-danger" style="white-space: pre-line"><%#: Item %></div>
             </ItemTemplate>
         </asp:Repeater>
 
