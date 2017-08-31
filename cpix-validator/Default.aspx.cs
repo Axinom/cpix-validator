@@ -159,7 +159,7 @@ namespace Axinom.CpixValidator
                     messages.Add("The document does not define any usage rules.");
                 }
 
-                if (cpix.ContentKeys.SignedBy != null)
+                if (cpix.ContentKeys.SignedBy.Any())
                 {
                     var signerNames = cpix.ContentKeys.SignedBy.Select(s => s.Subject).OrderBy(s => s);
 
@@ -170,7 +170,7 @@ namespace Axinom.CpixValidator
                     messages.Add("The set of content keys is not digitally signed.");
                 }
 
-                if (cpix.UsageRules.SignedBy != null)
+                if (cpix.UsageRules.SignedBy.Any())
                 {
                     var signerNames = cpix.UsageRules.SignedBy.Select(s => s.Subject).OrderBy(s => s);
 
@@ -181,7 +181,7 @@ namespace Axinom.CpixValidator
                     messages.Add("The set of usage rules is not digitally signed.");
                 }
 
-                if (cpix.Recipients.SignedBy != null)
+                if (cpix.Recipients.SignedBy.Any())
                 {
                     var signerNames = cpix.Recipients.SignedBy.Select(s => s.Subject).OrderBy(s => s);
 
