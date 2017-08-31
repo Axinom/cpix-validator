@@ -122,6 +122,11 @@ namespace Axinom.CpixValidator
                     }
                 }
 
+                if (cpix.UsageRules.Any(r => r.ContainsUnsupportedFilters))
+                {
+                    messages.Add("The document includes usage rule filters that are not supported by this validator. These filters were skipped during inspection.");
+                }
+
                 // And finally, just dump some useful data.
                 if (cpix.ContentKeys.Any())
                 {
