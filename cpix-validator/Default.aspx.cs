@@ -52,7 +52,7 @@ namespace Axinom.CpixValidator
                     }
                     catch (Exception ex)
                     {
-                        formErrors.Add("Unable to open the PFX file: " + ex.Message);
+                        formErrors.Add($"Unable to open the PFX file. {ex.GetType().Name}: {ex.Message}");
                         return;
                     }
                 }
@@ -86,7 +86,7 @@ namespace Axinom.CpixValidator
                 }
                 catch (Exception ex)
                 {
-                    errors.Add(ex.Message);
+                    errors.Add($"{ex.GetType().Name}: {ex.Message}");
                     warnings.Add("Validation could not be completed. Fix the above error and try again to perform a full validation.");
                     return;
                 }
@@ -203,7 +203,7 @@ namespace Axinom.CpixValidator
             }
             catch (Exception ex)
             {
-                formErrors.Add("Unexpected processing error. Please report this on GitHub! " + ex.Message);
+                formErrors.Add($"Unexpected processing error. Please report this on GitHub! {ex.GetType().Name}: {ex.Message}");
             }
             finally
             {
