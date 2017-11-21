@@ -48,7 +48,9 @@ namespace Axinom.CpixValidator
 
                     try
                     {
-                        recipientCertificate = new X509Certificate2(pfxBytes, pfxPassword);
+                        // We use the MachineKeySet because ASP.NET AppPool default configuration tends not to load the
+                        // user profile, so it cannot access the user key store and this will throw a "not found" exception.
+                        recipientCertificate = new X509Certificate2(pfxBytes, pfxPassword, X509KeyStorageFlags.MachineKeySet);
                     }
                     catch (Exception ex)
                     {
