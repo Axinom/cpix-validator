@@ -14,7 +14,7 @@
     <div class="container">
         <h1>CPIX document validator</h1>
         <p>
-            This page validates the conformance of XML documents to the <a href="http://dashif.org/guidelines/">Content Protection Information Exchange (CPIX) 2.0</a> specification.
+            This page validates the conformance of XML documents to the <a href="http://dashif.org/guidelines/">Content Protection Information Exchange (CPIX) 2.2</a> specification.
         </p>
 
         <asp:Panel runat="server" ID="resultsPanel" Visible="false">
