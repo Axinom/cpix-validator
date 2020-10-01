@@ -1,6 +1,6 @@
 # cpix-validator
 
-Web app for validating [CPIX 2.0 documents](http://dashif.org/guidelines/).
+Web app for validating [CPIX 2.2 documents](http://dashif.org/guidelines/).
 
 CPIX documents are used to carry content protection information in digital media processing workflows. They contain data such as:
 
